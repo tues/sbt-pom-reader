@@ -1,0 +1,8 @@
+# Release 2.1.0-RC2
+
+## Enhancements
+
+* Downgraded Maven libraries to be in sync with those in JDeb 1.3 (as used in sbt-native-packager plugin and others)
+    - Maven: 3.3.9 to 3.2.2
+
+Because a number of internal Maven/Aether APIs are being used, some classes had to be reimplemented or redirected due to changing internal APIs. As such, additional testing is needed from non-trivial projects to ensure previous functionality remains intact. Therefore, bug reports are very much appreciated.

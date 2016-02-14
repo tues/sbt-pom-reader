@@ -12,7 +12,7 @@ scalaVersion := "2.10.5"
 
 scalacOptions += "-target:jvm-1.6"
 
-val mvnVersion = "3.3.9"
+val mvnVersion = "3.2.2"
 val mvnWagonVersion = "2.10"
 val aetherVersion = "1.0.2.v20150114"
 
