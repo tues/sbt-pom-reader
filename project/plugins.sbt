@@ -5,8 +5,6 @@ resolvers += Resolver.url(
 
 resolvers += "jgit-repo" at "http://download.eclipse.org/jgit/maven"
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-git" % "0.8.4")
-
 addSbtPlugin("me.lessis" % "bintray-sbt" % "0.3.0")
 
 libraryDependencies <+= (sbtVersion) { sv =>

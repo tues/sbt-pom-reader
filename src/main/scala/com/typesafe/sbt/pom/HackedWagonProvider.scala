@@ -8,8 +8,8 @@ import org.apache.maven.wagon.Wagon
 import org.apache.maven.wagon.providers.file.FileWagon
 import org.apache.maven.wagon.providers.http.LightweightHttpWagonAuthenticator
 import org.apache.maven.wagon.providers.http.LightweightHttpsWagon
-import org.sonatype.aether.connector.wagon.WagonProvider
 import org.apache.maven.wagon.providers.http.LightweightHttpWagon
+import org.eclipse.aether.transport.wagon.WagonProvider
 
 
 /** We hack our own wagon provider, since plexus isn't working for us right now. */
