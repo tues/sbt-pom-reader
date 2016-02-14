@@ -3,8 +3,8 @@
 ## Enhancements
 
 * Upgraded 3rd party POM model processing libraries:
-  - Maven: 3.0.5 to 3.3.9
-  - Maven Wagon: 2.9 to 2.10
-  - Aether: Sonatype 1.13.1 to Eclipse 1.0.2.v20150114
+    - Maven: 3.0.5 to 3.3.9
+    - Maven Wagon: 2.9 to 2.10
+    - Aether: Sonatype 1.13.1 to Eclipse 1.0.2.v20150114
 
-Because a number of internal Maven/Aether APIs are being used, some of these classes went away between releases, and had to be replaced with others. As such, significant testing is needed from non-trivial projects to ensure previous functionality remains intact. Bug reports are very much appreciated.
+Because a number of internal Maven/Aether APIs are being used, some classes had to be reimplemented or redirected due to changing internal APIs. As such, additional testing is needed from non-trivial projects to ensure previous functionality remains intact. Therefore, bug reports are very much appreciated.

@@ -2,7 +2,7 @@ name := "sbt-pom-reader"
 
 organization := "com.typesafe.sbt"
 
-version := "2.1.0-RC1-SNAPSHOT"
+version := "2.1.0-RC2-SNAPSHOT"
 
 licenses +=("Apache-2.0", url("http://opensource.org/licenses/Apache-2.0"))
 
