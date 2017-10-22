@@ -82,33 +82,37 @@ object MavenProjectHelper {
             }
           // TODO - Configure debugging output....
           val currentProject = (
-              Project(makeProjectName(current.model,overrideRootProjectName),current.dir)
+            Project(makeProjectName(current.model, overrideRootProjectName), current.dir)
               // First pull in settings from pom
-              settings(useMavenPom:_*)
+              .settings(useMavenPom: _*)
               // Now update depends on relationships
-              dependsOn(depProjects.map(x =>x: ClasspathDep[ProjectReference]):_*)
+              .dependsOn(depProjects.map(makeDependency): _*)
               // Now fix aggregate relationships
-              aggregate(aggregates.map(x => x:ProjectReference):_*)
+              .aggregate(aggregates.map(x => x: ProjectReference): _*)
               // Now remove any inter-project dependencies we pulled in from the maven pom.
               // TODO - Maybe we can fix the useMavenPom settings so we don't need to
               // post-filter artifacts?
-              settings(
+              .settings(
                 Keys.libraryDependencies := {
                   val depIds = getDepsFor(current).map(_.id).toSet
                   Keys.libraryDependencies.value.filterNot { dep =>
                     val id = makeId(dep.organization, dep.name, dep.revision)
                     depIds contains id
-                  }  
-                }     
+                  }
+                }
               )
-              
           )
           makeProjects(rest, made + (current -> currentProject))
+
         case Nil => made.values.toSeq
       }
     makeProjects(sorted)
   }
-  
+
+  def makeDependency(project: Project): ClasspathDep[ProjectReference] = {
+    project % "compile->compile;test->test"
+  }
+
   // TODO - Can we  pick a better name and does this need scrubbed?
   def makeProjectName(pom: PomModel, overrideName: Option[String]): String = {
     val pomName = Option(pom.getProperties.get("sbt.project.name").asInstanceOf[String])
